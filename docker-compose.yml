@@ -9,8 +9,10 @@ services:
       - 8000:8000
     # user: "www-data:www-data"
     volumes:
-      - ${APPRISE_WEBAPP_DIR}:/opt/apprise/webapp:ro
-      - ${APPRISE_CONFIG_DIR}:/config:rw
+      # - ${APPRISE_WEBAPP_DIR}:/opt/apprise/webapp:ro
+      - ${APPRISE_CONFIG_DIR}/config:/config
+      - ${APPRISE_CONFIG_DIR}/plugin:/plugin
+      - ${APPRISE_CONFIG_DIR}/attach:/attach
       # if uncommenting the below, you will need to type the following
       # Note: if you opt for bind mount config file consider setting env var APPRISE_STATEFUL_MODE to simple with appropriate file format
       # otherwise the django instance won't have permissions to write
